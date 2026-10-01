@@ -23,17 +23,18 @@ export default function CommandCenterHome({ onOpen }) {
       <section className="command-hero">
         <div className="hero-index"><span>HASNAIN.OS / COMMAND CENTER</span></div>
         <div className="command-hero-content">
-          <div>
+          <div className="hero-copy">
             <div className="hero-eyebrow">PERSONAL OPERATING SYSTEM</div>
-            <h1>{SYSTEM_IDENTITY.owner}</h1><p className="hero-role">{SYSTEM_IDENTITY.role}</p>
-            <p className="hero-description">A CSE AI/ML student learning, experimenting and building practical systems across AI, web development and software engineering.</p>
-          </div>
-          <div className="command-hero-photo-wrap">
-            <div className="arc-ring arc-ring-one" /><div className="arc-ring arc-ring-two" />
-            <div className="command-hero-photo" onMouseMove={handlePhotoMove} onMouseLeave={() => setPhotoFocus({ x: 50, y: 50 })}>
-              <img src="/profile.jpeg" alt="Mohammed Hasnain" style={{ objectPosition: `${photoFocus.x}% ${photoFocus.y}%` }} />
+            <h1>{SYSTEM_IDENTITY.owner}</h1>
+            <div className="command-hero-photo-wrap">
+              <div className="arc-ring arc-ring-one" /><div className="arc-ring arc-ring-two" />
+              <div className="command-hero-photo" onMouseMove={handlePhotoMove} onMouseLeave={() => setPhotoFocus({ x: 50, y: 50 })}>
+                <img src="/profile.jpeg" alt="Mohammed Hasnain" style={{ objectPosition: `${photoFocus.x}% ${photoFocus.y}%` }} />
+              </div>
+              <span className="photo-tag">IDENTITY LOCKED</span>
             </div>
-            <span className="photo-tag">IDENTITY LOCKED</span>
+            <p className="hero-role">{SYSTEM_IDENTITY.role}</p>
+            <p className="hero-description">A CSE AI/ML student learning, experimenting and building practical systems across AI, web development and software engineering.</p>
           </div>
         </div>
         <div className="command-telemetry">
