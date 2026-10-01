@@ -1,0 +1,375 @@
+/* =========================================================
+   HASNAIN.OS — COMMAND CENTER
+   ========================================================= */
+
+.command-center {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  padding: 28px 40px;
+
+  background: #050505;
+  color: #ffffff;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   SYSTEM HEADER
+   ========================================================= */
+
+.command-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.system-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.system-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.system-version {
+  color: #555555;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+
+.system-state {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #777777;
+
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+}
+
+.online-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+  background: #ffffff;
+
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.command-hero {
+  width: min(1100px, 100%);
+
+  margin: 16vh auto 13vh;
+}
+
+.hero-index {
+  margin-bottom: 25px;
+
+  color: #555555;
+
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+}
+
+.command-hero-content {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  align-items: start;
+
+  gap: 60px;
+}
+
+.command-hero h1 {
+  margin: 0;
+
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-family: "Lucida Calligraphy", "Lucida Handwriting", "Cursive", sans-serif;
+  color: burlywood;
+}
+
+.hero-role {
+  margin: 22px 0 0;
+
+  color: #aaaaaa;
+
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  letter-spacing: 0.14em;
+}
+
+.hero-description {
+  max-width: 560px;
+
+  margin-top: 30px;
+
+  color: #666666;
+
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   PROFILE PHOTO
+   ========================================================= */
+
+.command-hero-photo {
+  width: 200px;
+  height: 250px;
+
+  overflow: hidden;
+
+  border: 1px solid #222222;
+  background: #0a0a0a;
+  border-radius: 10px;
+}
+
+.command-hero-photo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  /* ORIGINAL PHOTO — NO GRAYSCALE */
+  filter: none;
+}
+
+
+/* =========================================================
+   MODULE SECTION
+   ========================================================= */
+
+.module-section {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid #1c1c1c;
+
+  color: #555555;
+
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+}
+
+
+/* =========================================================
+   MODULE GRID
+   ========================================================= */
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border-left: 1px solid #1c1c1c;
+  border-top: 1px solid #1c1c1c;
+}
+
+.command-module {
+  position: relative;
+
+  min-height: 190px;
+  padding: 25px;
+
+  border: none;
+  border-right: 1px solid #1c1c1c;
+  border-bottom: 1px solid #1c1c1c;
+
+  background: #050505;
+  color: #ffffff;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    background 0.3s ease,
+    padding 0.3s ease;
+}
+
+.command-module:hover,
+.command-module.selected {
+  background: #0c0c0c;
+  padding-left: 32px;
+}
+
+.module-number {
+  color: #555555;
+
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+}
+
+.module-name {
+  margin-top: 35px;
+
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+}
+
+.module-description {
+  max-width: 230px;
+
+  margin-top: 12px;
+
+  color: #666666;
+
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.module-arrow {
+  position: absolute;
+
+  right: 25px;
+  bottom: 22px;
+
+  color: #555555;
+
+  font-size: 1.1rem;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.command-module:hover .module-arrow,
+.command-module.selected .module-arrow {
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.command-footer {
+  width: min(1100px, 100%);
+
+  margin: 35px auto 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #444444;
+
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .command-center {
+    padding: 25px;
+  }
+
+  .command-hero {
+    margin-top: 12vh;
+    margin-bottom: 10vh;
+  }
+
+  .module-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .command-center {
+    padding: 20px 16px;
+  }
+
+  .command-header {
+    align-items: flex-start;
+  }
+
+  .system-state {
+    font-size: 0.55rem;
+  }
+
+  .system-version {
+    display: none;
+  }
+
+  .command-hero {
+    margin-top: 10vh;
+    margin-bottom: 8vh;
+  }
+
+  .command-hero-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .command-hero h1 {
+    font-size: clamp(2.8rem, 14vw, 5rem);
+  }
+
+  .hero-description {
+    font-size: 0.8rem;
+  }
+
+  .command-hero-photo {
+    width: 150px;
+    height: 185px;
+  }
+
+  .section-heading {
+    font-size: 0.55rem;
+  }
+
+  .module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .command-module {
+    min-height: 160px;
+  }
+
+  .command-footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

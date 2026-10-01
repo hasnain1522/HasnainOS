@@ -1,0 +1,308 @@
+/* =========================================================
+   HASNAIN.OS — BOOT SCREEN
+   ========================================================= */
+
+.boot-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+
+  background: #050505;
+  color: #ffffff;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 40px 20px;
+}
+
+
+/* =========================================================
+   BOOT PANEL
+   ========================================================= */
+
+.boot-panel {
+  width: min(900px, 100%);
+  min-height: calc(100vh - 80px);
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   SYSTEM HEADER
+   ========================================================= */
+
+.boot-header {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.boot-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.boot-subtitle {
+  margin-top: 12px;
+
+  color: #888888;
+
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+}
+
+
+/* =========================================================
+   BOOT MODULES
+   ========================================================= */
+
+.boot-modules {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.boot-module {
+  opacity: 0.45;
+  transition: opacity 0.3s ease;
+}
+
+.boot-module.active,
+.boot-module:has(.module-status.online) {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   MODULE HEADER
+   ========================================================= */
+
+.boot-module-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 9px;
+}
+
+.module-name {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+}
+
+.module-status {
+  color: #777777;
+
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.module-status.online {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+   ========================================================= */
+
+.progress-track {
+  width: 100%;
+  height: 3px;
+
+  background: #1a1a1a;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+
+  background: #ffffff;
+
+  transition: width 0.08s linear;
+}
+
+
+/* =========================================================
+   SYSTEM READY
+   ========================================================= */
+
+.ready-message {
+  margin-top: 70px;
+  min-height: 200px;
+
+  opacity: 0;
+
+  transition: opacity 0.8s ease;
+}
+
+.ready-message.visible {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   READY STATUS
+   ========================================================= */
+
+.system-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================================================
+   IDENTITY
+   ========================================================= */
+
+.boot-identity {
+  margin-top: 45px;
+}
+
+.boot-identity h1 {
+  margin: 0;
+
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.boot-identity p {
+  margin: 10px 0 30px;
+
+  color: #888888;
+
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   ENTER SYSTEM BUTTON
+   ========================================================= */
+
+.enter-button {
+  padding: 13px 22px;
+
+  border: 1px solid #555555;
+
+  background: transparent;
+  color: #ffffff;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.enter-button:hover {
+  background: #ffffff;
+  color: #050505;
+  border-color: #ffffff;
+}
+
+.enter-button:active {
+  transform: translateY(1px);
+}
+
+
+/* =========================================================
+   SYSTEM VERSION
+   ========================================================= */
+
+.system-version {
+  margin-top: auto;
+  padding-top: 60px;
+
+  color: #555555;
+
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .boot-screen {
+    padding: 25px 16px;
+  }
+
+  .boot-panel {
+    min-height: calc(100vh - 50px);
+  }
+
+  .boot-header {
+    margin-bottom: 40px;
+  }
+
+  .boot-title {
+    font-size: clamp(1.8rem, 10vw, 3rem);
+  }
+
+  .boot-subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+  }
+
+  .boot-modules {
+    gap: 22px;
+  }
+
+  .module-name {
+    font-size: 0.85rem;
+  }
+
+  .module-status {
+    font-size: 0.7rem;
+  }
+
+  .ready-message {
+    margin-top: 55px;
+  }
+
+  .boot-identity {
+    margin-top: 35px;
+  }
+
+  .boot-identity h1 {
+    font-size: 2rem;
+  }
+
+  .system-version {
+    padding-top: 45px;
+  }
+}
