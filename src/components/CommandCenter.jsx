@@ -16,26 +16,13 @@ const MODULES = [
   ["06", "FUTURE BUILDS", "Ideas and systems currently on the roadmap."],
 ];
 
-export default function CommandCenter() {
-  const [active, setActive] = useState(null);
+function resetViewport() {
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
+}
 
-  useEffect(() => {
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }, [active]);
-
-  const back = () => {
-    setActive(null);
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  };
-
-  if (active === "01") return <IdentityCore onBack={back} />;
-  if (active === "02") return <Projects onBack={back} />;
-  if (active === "03") return <TechCore onBack={back} />;
-  if (active === "04") return <Experience onBack={back} />;
-  if (active === "05") return <AiLab onBack={back} />;
-  if (active === "06") return <FutureBuilds onBack={back} />;
-
+function CommandCenterHome({ onOpen }) {
   return (
     <main className="command-center">
       <div className="hud-corner hud-corner-tl" />
@@ -83,8 +70,8 @@ export default function CommandCenter() {
 
         <div className="command-telemetry">
           <div><span>BUILD STATE</span><b>ACTIVE</b></div>
-          <div><span>PROJECTS</span><b>{String(3).padStart(2, "0")}</b></div>
-          <div><span>HACKATHONS</span><b>{String(3).padStart(2, "0")}</b></div>
+          <div><span>PROJECTS</span><b>03</b></div>
+          <div><span>HACKATHONS</span><b>03</b></div>
           <div><span>AI TRACK</span><b>ONLINE</b></div>
         </div>
       </section>
@@ -99,8 +86,9 @@ export default function CommandCenter() {
           {MODULES.map(([id, name, description]) => (
             <button
               key={id}
+              type="button"
               className="command-module"
-              onClick={() => setActive(id)}
+              onClick={() => onOpen(id)}
             >
               <span className="module-number">{id}</span>
               <span className="module-name">{name}</span>
@@ -118,4 +106,29 @@ export default function CommandCenter() {
       </footer>
     </main>
   );
+}
+
+export default function CommandCenter() {
+  const [active, setActive] = useState(null);
+
+  useEffect(() => {
+    resetViewport();
+  }, [active]);
+
+  const back = () => {
+    setActive(null);
+    requestAnimationFrame(() => {
+      resetViewport();
+      requestAnimationFrame(resetViewport);
+    });
+  };
+
+  if (active === "01") return <IdentityCore onBack={back} />;
+  if (active === "02") return <Projects onBack={back} />;
+  if (active === "03") return <TechCore onBack={back} />;
+  if (active === "04") return <Experience onBack={back} />;
+  if (active === "05") return <AiLab onBack={back} />;
+  if (active === "06") return <FutureBuilds onBack={back} />;
+
+  return <CommandCenterHome onOpen={setActive} />;
 }
