@@ -52,7 +52,7 @@ src/
 - `BootScreen.jsx` → `BootModule.jsx` + `bootData.js` + `systemIdentity.js` + `AudioEngine.js`
 - `CommandCenter.jsx` → `CommandCenterHome.jsx` + all six module components
 - `CommandCenterHome.jsx` → `commandModules.js` + `systemIdentity.js`
-- `Projects.jsx` → `projectData.js` + `Projects.css`
+- `Projects.jsx` → `projectData.js` + `styles/projects.css`
 - `IdentityCore.jsx` → `identityData.js` + `systemIdentity.js` + `identity-core.css`
 - `TechCore.jsx` → `techCoreData.js` + `system-module.css`
 - `Experience.jsx` → `experienceData.js` + `system-module.css`
@@ -75,7 +75,7 @@ src/
 | Boot appearance | `src/styles/boot.css` |
 | Command Center appearance | `src/styles/command-center.css` |
 | Identity appearance | `src/styles/identity-core.css` |
-| Project database appearance | `src/components/Projects.css` |
+| Project database appearance | `src/styles/projects.css` |
 | Shared module appearance | `src/styles/system-module.css` |
 | Navigation logic | `src/components/CommandCenter.jsx` |
 | Command Center content/layout | `src/components/CommandCenterHome.jsx` |
