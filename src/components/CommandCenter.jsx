@@ -139,12 +139,15 @@ export default function CommandCenter() {
     });
   };
 
-  if (active === "01") return <IdentityCore onBack={back} />;
-  if (active === "02") return <Projects onBack={back} />;
-  if (active === "03") return <TechCore onBack={back} />;
-  if (active === "04") return <Experience onBack={back} />;
-  if (active === "05") return <AiLab onBack={back} />;
-  if (active === "06") return <FutureBuilds onBack={back} />;
-
-  return <CommandCenterHome onOpen={setActive} />;
+  return (
+    <div className={`command-shell ${active ? "module-active" : ""}`}>
+      {!active && <CommandCenterHome onOpen={setActive} />}
+      {active === "01" && <IdentityCore onBack={back} />}
+      {active === "02" && <Projects onBack={back} />}
+      {active === "03" && <TechCore onBack={back} />}
+      {active === "04" && <Experience onBack={back} />}
+      {active === "05" && <AiLab onBack={back} />}
+      {active === "06" && <FutureBuilds onBack={back} />}
+    </div>
+  );
 }
