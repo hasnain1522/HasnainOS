@@ -23,6 +23,15 @@ function resetViewport() {
 }
 
 function CommandCenterHome({ onOpen }) {
+  const [photoFocus, setPhotoFocus] = useState({ x: 50, y: 50 });
+
+  const handlePhotoMove = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    setPhotoFocus({
+      x: ((event.clientX - rect.left) / rect.width) * 100,
+      y: ((event.clientY - rect.top) / rect.height) * 100,
+    });
+  };
   return (
     <main className="command-center">
       <div className="hud-corner hud-corner-tl" />
@@ -43,8 +52,7 @@ function CommandCenterHome({ onOpen }) {
 
       <section className="command-hero">
         <div className="hero-index">
-          <span>COMMAND CENTER / 00</span>
-          <span className="hero-signal">ARC SIGNAL // STABLE</span>
+          <span>HASNAIN.OS / COMMAND CENTER</span>
         </div>
 
         <div className="command-hero-content">
@@ -61,8 +69,16 @@ function CommandCenterHome({ onOpen }) {
           <div className="command-hero-photo-wrap">
             <div className="arc-ring arc-ring-one" />
             <div className="arc-ring arc-ring-two" />
-            <div className="command-hero-photo">
-              <img src="/profile.jpeg" alt="Mohammed Hasnain" />
+            <div
+              className="command-hero-photo"
+              onMouseMove={handlePhotoMove}
+              onMouseLeave={() => setPhotoFocus({ x: 50, y: 50 })}
+            >
+              <img
+                src="/profile.jpeg"
+                alt="Mohammed Hasnain"
+                style={{ objectPosition: `${photoFocus.x}% ${photoFocus.y}%` }}
+              />
             </div>
             <span className="photo-tag">IDENTITY LOCKED</span>
           </div>
