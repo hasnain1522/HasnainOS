@@ -1,0 +1,4 @@
+/* Future Builds module-specific styling. Shared module primitives live in system-module.css. */
+.future-builds-module .roadmap{max-width:1120px}
+.future-builds-module .roadmap article{transition:background .25s ease,padding-left .25s ease}
+.future-builds-module .roadmap article:hover{background:rgba(98,216,255,.025);padding-left:8px}
