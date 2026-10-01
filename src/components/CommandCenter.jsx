@@ -20,12 +20,13 @@ export default function CommandCenter() {
   const [active, setActive] = useState(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [active]);
 
   const back = () => {
     setActive(null);
-    requestAnimationFrame(() => window.scrollTo(0, 0));
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   };
 
   if (active === "01") return <IdentityCore onBack={back} />;
@@ -37,6 +38,11 @@ export default function CommandCenter() {
 
   return (
     <main className="command-center">
+      <div className="hud-corner hud-corner-tl" />
+      <div className="hud-corner hud-corner-tr" />
+      <div className="hud-corner hud-corner-bl" />
+      <div className="hud-corner hud-corner-br" />
+
       <header className="command-header">
         <div className="system-brand">
           <span className="system-name">{SYSTEM_IDENTITY.name}</span>
@@ -49,22 +55,37 @@ export default function CommandCenter() {
       </header>
 
       <section className="command-hero">
-        <div className="hero-index">COMMAND CENTER / 00</div>
+        <div className="hero-index">
+          <span>COMMAND CENTER / 00</span>
+          <span className="hero-signal">ARC SIGNAL // STABLE</span>
+        </div>
 
         <div className="command-hero-content">
           <div>
+            <div className="hero-eyebrow">PERSONAL OPERATING SYSTEM</div>
             <h1>{SYSTEM_IDENTITY.owner}</h1>
             <p className="hero-role">{SYSTEM_IDENTITY.role}</p>
             <p className="hero-description">
-              A CSE AI/ML student exploring AI, web development and emerging
-              technologies through learning, experimentation and hands-on
-              projects.
+              A CSE AI/ML student learning, experimenting and building practical
+              systems across AI, web development and software engineering.
             </p>
           </div>
 
-          <div className="command-hero-photo">
-            <img src="/profile.jpeg" alt="Mohammed Hasnain" />
+          <div className="command-hero-photo-wrap">
+            <div className="arc-ring arc-ring-one" />
+            <div className="arc-ring arc-ring-two" />
+            <div className="command-hero-photo">
+              <img src="/profile.jpeg" alt="Mohammed Hasnain" />
+            </div>
+            <span className="photo-tag">IDENTITY LOCKED</span>
           </div>
+        </div>
+
+        <div className="command-telemetry">
+          <div><span>BUILD STATE</span><b>ACTIVE</b></div>
+          <div><span>PROJECTS</span><b>{String(3).padStart(2, "0")}</b></div>
+          <div><span>HACKATHONS</span><b>{String(3).padStart(2, "0")}</b></div>
+          <div><span>AI TRACK</span><b>ONLINE</b></div>
         </div>
       </section>
 
@@ -84,7 +105,8 @@ export default function CommandCenter() {
               <span className="module-number">{id}</span>
               <span className="module-name">{name}</span>
               <span className="module-description">{description}</span>
-              <span className="module-arrow">→</span>
+              <span className="module-arrow">↗</span>
+              <span className="module-scan" />
             </button>
           ))}
         </div>
@@ -92,7 +114,7 @@ export default function CommandCenter() {
 
       <footer className="command-footer">
         <span>HASNAIN.OS / COMMAND CENTER</span>
-        <span>AWAITING COMMAND</span>
+        <span>CORE // AWAITING COMMAND</span>
       </footer>
     </main>
   );
