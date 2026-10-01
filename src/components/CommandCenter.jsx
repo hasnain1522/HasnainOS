@@ -140,8 +140,11 @@ export default function CommandCenter() {
   };
 
   return (
-    <div className={`command-shell ${active ? "module-active" : ""}`}>
-      {!active && <CommandCenterHome onOpen={setActive} />}
+    <div className="command-shell">
+      <div className={active ? "command-view-hidden" : "command-view-active"}>
+        <CommandCenterHome onOpen={setActive} />
+      </div>
+
       {active === "01" && <IdentityCore onBack={back} />}
       {active === "02" && <Projects onBack={back} />}
       {active === "03" && <TechCore onBack={back} />}
