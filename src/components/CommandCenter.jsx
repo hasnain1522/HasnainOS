@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import CommandCenterHome from "./CommandCenterHome";
 import IdentityCore from "./modules/IdentityCore";
-import Projects from "./Projects";
-import TechCore from "./TechCore";
-import Experience from "./Experience";
-import AiLab from "./AiLab";
-import FutureBuilds from "./FutureBuilds";
+import Projects from "./modules/Projects";
+import TechCore from "./modules/TechCore";
+import Experience from "./modules/Experience";
+import AiLab from "./modules/AiLab";
+import FutureBuilds from "./modules/FutureBuilds";
 
 const MODULE_COMPONENTS = {
   "01": IdentityCore, "02": Projects, "03": TechCore,
