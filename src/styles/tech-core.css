@@ -1,0 +1,3 @@
+/* Tech Core module-specific styling. Shared module primitives live in system-module.css. */
+.tech-core-module .sm-hero p{max-width:640px}
+.tech-core-module .sm-card{min-height:245px}
