@@ -118,7 +118,6 @@ export default function BootScreen({ onEnter }) {
               <span className="start-core" />
             </div>
 
-            <div className="start-status">AUDIO CHANNEL LOCKED</div>
             <p className="start-description">
               System is standing by. Initialize to begin the portfolio
               experience.
